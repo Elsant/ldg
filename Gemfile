@@ -14,7 +14,9 @@ gem 'jquery-rails'
 
 gem 'bourbon'
 
-
+group :production do
+  gem 'rails_12factor'
+end
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 # See https://github.com/rails/execjs#readme for more supported runtimes
