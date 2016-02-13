@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'slim'
 
 gem 'devise'
+gem 'mailgun_rails'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'thin'
   gem 'byebug'
   gem 'spring'
+  gem 'dotenv-rails'
 end
 
 group :production do
