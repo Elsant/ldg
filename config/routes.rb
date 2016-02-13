@@ -2,10 +2,18 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  scope controller: :pages do
+   get 'index', as: :index
+   get 'home', as: :home
+  end
+  
+  authenticated :user do
+    root 'pages#home', as: :auth_root
+  end
 
-  get 'pages/home', as: :home
-
+  # root to: redirect("index")
   root 'pages#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
