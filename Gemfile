@@ -16,6 +16,8 @@ gem 'slim'
 gem 'devise'
 gem 'mailgun_rails'
 
+gem 'wicked'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do

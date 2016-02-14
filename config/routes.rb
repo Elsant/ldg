@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     root 'pages#home', as: :auth_root
   end
 
+  resources :intro
+  
   # root to: redirect("index")
   root 'pages#index'
 
