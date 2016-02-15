@@ -1,9 +1,30 @@
 class User < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :fullname, use: :slugged
+
+  # has_one :style,   :dependent => :destroy
+  # has_one :sizeset, :dependent => :destroy
  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable  # :omniauthable
 
+
+  def slug_candidates
+    [ :lastname,
+      [:firstname, :lastname],
+      [:firstname, :lastname, :halfemail]
+    ]
+  end
+
+  def fullname
+   "#{self.firstname} #{self.lastname}"
+  end
+
+  def halfemail
+    self.email.split/@/.gsub(/\./, '')[0]
+  end
 
 end
 

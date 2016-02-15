@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :first_name,         null: false
       t.string  :last_name,          null: false
       t.string  :email,              null: false, default: ""
-      # t.string  :slug
+      t.string  :slug
       t.date    :birthdate 
       t.string  :phone,              null: false
       t.string  :zipcode,            null: false
@@ -54,6 +54,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
-    # add_index :users, :slug,                 unique: true
+    add_index :users, :slug,                 unique: true
   end
 end
