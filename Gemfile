@@ -12,11 +12,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bourbon'
 gem 'slim'
+gem 'slim-rails'
 
 gem 'devise'
 gem 'mailgun_rails'
 
 gem 'wicked'
+# gem 'friendly_id', '~> 5.1.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

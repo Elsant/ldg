@@ -1,7 +1,7 @@
 class IntroController < ApplicationController
   include Wicked::Wizard::Translated
 
-  steps :gender, :work, :evening, :shirtfit, :pantsfit, :stores, :shirtsize, :waistsize, :shoesize, :heightsize,  :weightsize, :profile
+  steps :gender, :work, :evening, :shirtfit, :pantsfit, :stores, :shirtsize, :necksize, :jacketsize, :waistsize, :shoesize, :heightsize,  :weightsize, :profile
 
   def show
     render_wizard

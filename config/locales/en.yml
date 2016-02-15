@@ -7,6 +7,8 @@ en:
     pantsfit: "pants-fit"
     stores: "stores"
     shirtsize: "shirt-size"
+    necksize:  "neck-size"
+    jacketsize: "jacket-size"
     waistsize: "waist-size"
     shoesize: "shoe-size"
     heightsize: "height"
