@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    title
+      | Mini Form
+    link[rel="stylesheet" href="assets/demo.css"]
+    link[rel="stylesheet" href="assets/form-mini.css"]
+  header
+    h1
+      | Freebie: 7 Clean and Responsive Forms
+    a[href="http://tutorialzine.com/2015/07/freebie-7-clean-and-responsive-forms/"]
+      | Download
+  ul
+    li
+      a[href="index.html"]
+        | Basic
+    li
+      a[href="form-register.html"]
+        | Register
+    li
+      a[href="form-login.html"]
+        | Login
+    li
+      a.active[href="form-mini.html"]
+        | Mini
+    li
+      a[href="form-labels-on-top.html"]
+        | Labels on Top
+    li
+      a[href="form-validation.html"]
+        | Validation
+    li
+      a[href="form-search.html"]
+        | Search
+  .main-content
+    .form-mini-container
+      h1
+        | Mini Form
+      form.form-mini[method="post" action="#"]
+        .form-row
+          input[type="text" name="name" placeholder="Your Name"]
+        .form-row
+          input[type="email" name="email" placeholder="Your Email"]
+        .form-row
+          label
+            select[name="dropdown"]
+              option
+                | Choose an option
+              option
+                | Option One
+              option
+                | Option Two
+              option
+                | Option Three
+              option
+                | Option Four
+        .form-row
+          label.form-checkbox
+            input[type="checkbox" name="checkbox" checked]
+            span
+              | Checkbox
+        .form-row
+          .form-radio-buttons
+            div
+              label
+                input[type="radio" name="radio"]
+                span
+                  | Radio option 1
+            div
+              label
+                input[type="radio" name="radio"]
+                span
+                  | Radio option 2
+            div
+              label
+                input[type="radio" name="radio"]
+                span
+                  | Radio option 3
+        .form-row.form-last-row
+          button[type="submit"]
+            | Submit Form

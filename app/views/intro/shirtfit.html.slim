@@ -1,2 +1,18 @@
-h1 Shirt Fit
-= render "intro/links"
+.main-content
+  = form_for @style, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Shirt Fit
+    .form-row
+      label
+        span How do you like your shirts to fit?
+      .form-radio-buttons
+        div
+          label
+            =f.radio_button :shirt_fit, 0, :checked => true
+            span Slim
+        div
+          label
+            =f.radio_button :shirt_fit, 1
+            span Classic
+    .form-row
+      = f.button "Next: Pants Fit", :name => "Next: Pants Fit"

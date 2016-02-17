@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    title
+      | LadiesDressGents | Sign In
+    link[rel="stylesheet" href="assets/demo.css"]
+    link[rel="stylesheet" href="assets/form-basic.css"]
+  .main-content
+    form.form-basic[method="post" action="#"]
+      .form-title-row
+        h1
+          | Select Evening Style
+      .form-row
+        label
+          span
+            | How do you dress when going out?
+        .form-radio-buttons
+          div
+            label
+              input[type="radio" name="radio"]
+              span
+                | Casual
+          div
+            label
+              input[type="radio" name="radio"]
+              span
+                | Bold
+          div
+            label
+              input[type="radio" name="radio"]
+              span
+                | Dapper
+      .form-row
+        button[type="submit"]
+          | Next: Shirt Fit

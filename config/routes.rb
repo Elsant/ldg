@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   scope controller: :pages do
    get 'index', as: :index
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'pages#home', as: :auth_root
   end
+
+
 
   resources :intro
   

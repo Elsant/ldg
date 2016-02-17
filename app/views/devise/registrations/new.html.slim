@@ -3,9 +3,25 @@ h2
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
+    = f.label :firstname
+  br
+    = f.text_field :firstname, autofocus: true
+  .field
+    = f.label :lastname
+  br
+    = f.text_field :lastname, autofocus: true
+  .field
     = f.label :email
-    br
+  br
     = f.email_field :email, autofocus: true
+  .field
+    = f.label :phone
+  br
+    = f.text_field :phone, autofocus: true
+    .field
+      = f.label :zipcode
+    br
+      = f.text_field :zipcode, autofocus: true
   .field
     = f.label :password
     - if @minimum_password_length
@@ -19,6 +35,10 @@ h2
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation, autocomplete: "off"
+  .field
+    = f.label :"How Did You Hear about us?"
+  br
+    = f.text_field :market_source, autofocus: true
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"

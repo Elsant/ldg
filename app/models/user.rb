@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :fullname, use: :slugged
 
-  # has_one :style,   :dependent => :destroy
-  # has_one :sizeset, :dependent => :destroy
+  has_one :style,   :dependent => :destroy
+  has_one :sizeset, :dependent => :destroy
  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def halfemail
-    self.email.split/@/.gsub(/\./, '')[0]
+    self.email.split(/@/).gsub(/\./, '')[0]
   end
 
 end

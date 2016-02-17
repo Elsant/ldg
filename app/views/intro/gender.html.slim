@@ -1,2 +1,20 @@
-h1 Gender Preference
-= render "intro/links"
+.main-content
+  = form_for @style || Style.new, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Gender
+    .form-row
+      label
+        span Select One
+      .form-radio-buttons
+        div
+          label
+            =f.radio_button :gender_preference, 0, :checked => true
+            span Gentleman
+            
+        div
+          label
+            =f.radio_button :gender_preference, 1
+            span Lady
+            
+    .form-row
+      = f.button "Next: Work Style", :name => "Next: Work Style"

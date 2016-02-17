@@ -1,3 +1,23 @@
-h1 Work Style
-= render "intro/links"
-
+.main-content
+  = form_for @style, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Work Style
+    .form-row
+      label
+        span How do you dress for work?
+      .form-radio-buttons
+        div
+          label
+            =f.radio_button :work_style, 0, :checked => true
+            span  Casual
+        div
+          label
+            =f.radio_button :work_style, 1
+            span  Business
+        div
+          label
+            =f.radio_button :work_style, 2
+            span Formal
+    .form-row
+      = f.button "Next: Evening Style", :name => "Next: Evening Style"
+        

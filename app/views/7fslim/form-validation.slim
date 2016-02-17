@@ -1,0 +1,89 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    title
+      | Validation Form
+    link[rel="stylesheet" href="assets/demo.css"]
+    link[rel="stylesheet" href="assets/form-validation.css"]
+    link[rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"]
+  header
+    h1
+      | Freebie: 7 Clean and Responsive Forms
+    a[href="http://tutorialzine.com/2015/07/freebie-7-clean-and-responsive-forms/"]
+      | Download
+  ul
+    li
+      a[href="index.html"]
+        | Basic
+    li
+      a[href="form-register.html"]
+        | Register
+    li
+      a[href="form-login.html"]
+        | Login
+    li
+      a[href="form-mini.html"]
+        | Mini
+    li
+      a[href="form-labels-on-top.html"]
+        | Labels on Top
+    li
+      a.active[href="form-validation.html"]
+        | Validation
+    li
+      a[href="form-search.html"]
+        | Search
+  .main-content
+    form.form-validation[method="post" action="#"]
+      .form-title-row
+        h1
+          | Form Validation
+      .form-row.form-input-name-row
+        label
+          span
+            | Full name
+          input[type="text" name="name"]
+        span.form-valid-data-sign
+          i.fa.fa-check
+        span.form-invalid-data-sign
+          i.fa.fa-close
+        span.form-invalid-data-info
+      .form-row.form-input-email-row
+        label
+          span
+            | Email
+          input[type="email" name="email" value="email@example.com"]
+        span.form-valid-data-sign
+          i.fa.fa-check
+        span.form-invalid-data-sign
+          i.fa.fa-close
+        span.form-invalid-data-info
+      .form-row
+        label
+          span
+            | Dropdown
+          select[name="dropdown"]
+            option
+              | Choose an option
+            option
+              | Option One
+            option
+              | Option Two
+            option
+              | Option Three
+            option
+              | Option Four
+      .form-row
+        label.form-checkbox
+          span
+            | Checkbox
+          input[type="checkbox" name="checkbox" checked]
+      .form-row
+        button[type="submit"]
+          | Submit Form
+  script[src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"]
+  script
+    |  $(document).ready(function() { // Here is how to show an error message next to a form field var errorField = $('.form-input-name-row'); // Adding the form-invalid-data class will show // the error message and the red x for that field errorField.addClass('form-invalid-data'); errorField.find('.form-invalid-data-info').text('Please enter your name'); // Here is how to mark a field with a green check mark var successField = $('.form-input-email-row'); successField.addClass('form-valid-data'); }); 
