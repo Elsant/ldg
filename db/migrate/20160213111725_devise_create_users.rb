@@ -10,8 +10,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :zipcode,            null: false
       t.text    :description
       t.boolean :enabled,            default: true
-      t.integer :style_id
-      t.integer :size_id
       t.string  :market_source # How Did You Hear about us?
 
       ## Database authenticatable

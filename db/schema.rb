@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(version: 20160215210930) do
     t.string   "zipcode",                               null: false
     t.text     "description"
     t.boolean  "enabled",                default: true
-    t.integer  "style_id"
-    t.integer  "size_id"
     t.string   "market_source"
     t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"

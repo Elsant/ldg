@@ -1,2 +1,13 @@
-h1 Waist Size
-= render "intro/links"
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Waist Size
+    .form-row
+      label
+        span What is your waist size?
+
+        =f.select( :waist, options_for_waist_sizes, { include_blank: false } )
+
+    .form-row
+      = f.button "Next: Shoes", :name => "Next: Shoes"
+        

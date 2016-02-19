@@ -1,16 +1,20 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :update_sanitized_params, if: :devise_controller?
 
+
   def new
     #!!!! REMOVE
-    session[:after_intro] = false
-    session[:style_id]= nil
+    # session[:after_intro] = false
+    # session[:style_id]= nil
 
     if session[:after_intro]
       puts "AFTER INTRO", session[:after_intro]
       # build_resource(session[:blduser])
       session[:after_intro] = false
-      build_resource({})
+      bld = build_resource({})
+
+      build_style_and_sizeset (bld)
+
       respond_with self.resource
     else
       build_resource({})
@@ -34,6 +38,13 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
+  def build_style_and_sizeset (user)
+    # @style   = Style.find_by(id: session[:style_id]) 
+    # @sizeset = Sizeset.find_by(id: session[:sizeset_id])
+    # user.build_style(@style) 
+    # user.build_sizeset(@sizeset)
+  end
 
   def after_sign_up_path_for(resource)
     root_path

@@ -1,2 +1,15 @@
-h1 Shirt Size
-= render "intro/links"
+.main-content
+  = form_for @sizeset ||= Sizeset.new, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Shirt Size
+    .form-row
+      label
+        span Which shirt size fits you best?
+        
+        =f.select( :shirt, options_for_shirt_sizes, { include_blank: false } )
+       
+    .form-row
+      = f.button "Next: Neck", :name => "Next: Neck"
+
+
+       

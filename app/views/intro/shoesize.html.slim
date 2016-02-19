@@ -1,2 +1,12 @@
-h1 Shoe Size
-= render "intro/links"
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Shoe Size
+    .form-row
+      label
+        span What is your shoe size?
+
+        =f.select( :shoe, options_for_shoe_sizes, { include_blank: false } )
+
+    .form-row
+      b= f.button "Next: Height", :name => "Next: Height"

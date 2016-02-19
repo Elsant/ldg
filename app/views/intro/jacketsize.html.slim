@@ -1,2 +1,13 @@
-h1 Jacket Size
-= render "intro/links"
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Jacket Size
+    .form-row
+      label
+        span What is your jacket size?
+
+        =f.select( :jacket, options_for_jacket_sizes, { include_blank: false } )
+
+    .form-row
+      = f.button "Next: Waist", :name => "Next: Waist"
+      

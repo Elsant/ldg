@@ -1,44 +1,42 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :firstname
-  br
-    = f.text_field :firstname, autofocus: true
-  .field
-    = f.label :lastname
-  br
-    = f.text_field :lastname, autofocus: true
-  .field
-    = f.label :email
-  br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :phone
-  br
-    = f.text_field :phone, autofocus: true
-    .field
-      = f.label :zipcode
-    br
-      = f.text_field :zipcode, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :"How Did You Hear about us?"
-  br
-    = f.text_field :market_source, autofocus: true
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.main-content
+  = form_for(resource, as: resource_name, url: registration_path(resource_name),  html: {class: "form-basic"}) do |f|
+    .form-title-row
+      h1 Complete Your Profile
+    .form-row
+      = devise_error_messages!
+    .form-row
+      label
+        span First Name
+        = f.text_field :firstname, autofocus: true
+    .form-row
+      label
+        span Last Name
+        = f.text_field :lastname, autofocus: true
+    .form-row
+      label
+        span Phone
+        = f.text_field :phone, autofocus: true
+    .form-row
+      label
+        span Zip Code
+        = f.text_field :zipcode, autofocus: true
+    .form-row
+      label
+        span Email Address
+        = f.email_field :email, autofocus: true
+    .form-row
+      label
+        span Password
+        = f.password_field :password, autocomplete: "off"
+    .form-row
+      label
+        span Password Confirmation
+        = f.password_field :password_confirmation, autocomplete: "off"
+    .form-row
+      label
+        span How Did You Hear about us?
+        = f.text_field :market_source, autofocus: true
+    .form-row
+      = f.button "Create Your Account"
+    .form-row
+      = render "devise/shared/links"

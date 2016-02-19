@@ -1,3 +1,12 @@
-h1 Weight Size
-= render "intro/links"
-=console
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Weight
+    .form-row
+      label
+        span What is your weight?
+
+        =f.select( :weight, options_for_weight_sizes, { include_blank: false } )
+        
+    .form-row
+      = f.button "Next: Personal Info", :name => "Next: Personal Info"

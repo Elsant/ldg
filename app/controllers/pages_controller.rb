@@ -2,7 +2,11 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!, :only => :home
   
   def index
-    redirect_to(:home) if signed_in?
+    if signed_in? 
+      redirect_to(:home)
+    else
+      redirect_to new_user_session_path 
+    end
   end
 
   def home

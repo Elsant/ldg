@@ -1,6 +1,13 @@
-h1 Neck Size
-=@style.inspect
-=@sizeset.inspect
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Neck Size
+    .form-row
+      label
+        span What is your neck size?
 
-= render "intro/links"
-=console
+        =f.select( :neck, options_for_neck_sizes, { include_blank: false } )
+
+    .form-row
+      = f.button "Next: Jacket", :name => "Next: Jacket"
+        

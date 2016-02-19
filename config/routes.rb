@@ -11,13 +11,11 @@ Rails.application.routes.draw do
     root 'pages#home', as: :auth_root
   end
 
-
-
   resources :intro
+  root 'pages#index'
   
   # root to: redirect("index")
-  root 'pages#index'
-
+  # 'pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

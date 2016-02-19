@@ -1,4 +1,12 @@
-h1 Height Size
+.main-content
+  = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Select Height
+    .form-row
+      label
+        span What is your height?
 
-= render "intro/links"
-=console
+        =f.select( :height, options_for_height_sizes, { include_blank: false } )
+      
+    .form-row
+      b= f.button "Next: Weight", :name => "Next: Weight"

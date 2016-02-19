@@ -5,53 +5,52 @@
       .form-row
         label
           span Nordstrom
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, {:multiple => true, :checked=>true}, 0, nil
       .form-row
         label
           span Express
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 1, nil
       .form-row
         label
           span H&M
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 2, nil
       .form-row
         label
           span Banana Republic
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 3, nil
       .form-row
         label
           span Saks Fifth Avenue
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 4, nil
       .form-row
         label
           span Gilt
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 5, nil
       .form-row
         label
           span Urban Outfitters
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 6, nil
       .form-row
         label
           span J.Crew
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 7, nil
       .form-row
         label
           span American Eagle Outfitters
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 8, nil
       .form-row
         label
           span Macy's
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 9, nil
       .form-row
         label
           span Gap
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 10, nil
       .form-row
         label
           span Neiman Marcus
-          input[type="checkbox" name="checkbox" checked]
+          =f.check_box :store, { :multiple => true }, 11, nil
       .form-row
-        button
-          | Next: Shirt Sizes
-        /= f.button "Next: Shirt Sizes", :name => "Next: Shirt Sizes"
+        = f.button "Next: Shirt Sizes", :name => "Next: Shirt Sizes"
+      
           

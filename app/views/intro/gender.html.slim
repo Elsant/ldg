@@ -1,5 +1,5 @@
 .main-content
-  = form_for @style || Style.new, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+  = form_for @style ||= Style.new, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
     .form-title-row
       h1 Select Gender
     .form-row
