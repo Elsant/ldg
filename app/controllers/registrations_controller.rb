@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
     # session[:style_id]= nil
 
     if session[:after_intro]
-      puts "AFTER INTRO", session[:after_intro]
+      # puts "AFTER INTRO", session[:after_intro]
       # build_resource(session[:blduser])
       session[:after_intro] = false
       bld = build_resource({})
@@ -22,8 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
       yield resource if block_given?
       blduser = self.resource
       # blduser[:firstname] = "Ivan"
-      puts "BLDUSER", blduser.object_id
-      session[:after_intro] = true
+      # puts "BLDUSER", blduser.object_id
+      # session[:after_intro] = true
       redirect_to intro_path(Wicked::FIRST_STEP) #, :locals => {@user => self.resource} 
     end
     
