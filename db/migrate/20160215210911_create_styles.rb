@@ -7,7 +7,7 @@ class CreateStyles < ActiveRecord::Migration
       t.integer :evening_style,        limit: 1
       t.integer :shirt_fit,            limit: 1
       t.integer :pants_fit,            limit: 1
-      t.integer :store,                limit: 3
+      
 
       t.timestamps null: false
     end

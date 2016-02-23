@@ -1,55 +1,15 @@
 .main-content
-    = form_for @style, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
+    = form_for @fav_store ||= FavStore.new , url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
       .form-title-row
         h1 Where do you like to shop?
-      .form-row
-        label
-          span Nordstrom
-          =f.check_box :store, {:multiple => true, :checked=>true}, 0, nil
-      .form-row
-        label
-          span Express
-          =f.check_box :store, { :multiple => true }, 1, nil
-      .form-row
-        label
-          span H&M
-          =f.check_box :store, { :multiple => true }, 2, nil
-      .form-row
-        label
-          span Banana Republic
-          =f.check_box :store, { :multiple => true }, 3, nil
-      .form-row
-        label
-          span Saks Fifth Avenue
-          =f.check_box :store, { :multiple => true }, 4, nil
-      .form-row
-        label
-          span Gilt
-          =f.check_box :store, { :multiple => true }, 5, nil
-      .form-row
-        label
-          span Urban Outfitters
-          =f.check_box :store, { :multiple => true }, 6, nil
-      .form-row
-        label
-          span J.Crew
-          =f.check_box :store, { :multiple => true }, 7, nil
-      .form-row
-        label
-          span American Eagle Outfitters
-          =f.check_box :store, { :multiple => true }, 8, nil
-      .form-row
-        label
-          span Macy's
-          =f.check_box :store, { :multiple => true }, 9, nil
-      .form-row
-        label
-          span Gap
-          =f.check_box :store, { :multiple => true }, 10, nil
-      .form-row
-        label
-          span Neiman Marcus
-          =f.check_box :store, { :multiple => true }, 11, nil
+
+      - stores_list.each_with_index do |store, i|
+        .form-row
+          label
+            span
+              = store
+            = f.check_box(:store, { :multiple => true }, i, nil)
+
       .form-row
         = f.button "Next: Shirt Sizes", :name => "Next: Shirt Sizes"
       

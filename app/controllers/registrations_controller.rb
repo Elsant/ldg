@@ -11,19 +11,22 @@ class RegistrationsController < Devise::RegistrationsController
       build_resource({})
       set_minimum_password_length
       yield resource if block_given?
-      blduser = self.resource
       redirect_to intro_path(Wicked::FIRST_STEP)
     end
   end
 
   def create
     super
-    style   = Style.find_by(id: session[:style_id]) 
-    sizeset = Sizeset.find_by(id: session[:sizeset_id])
-    style.user_id = resource.id
-    style.save
-    sizeset.user_id = resource.id
-    sizeset.save
+    @style     ||= Style.find_by(id: session[:style_id]) 
+    @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id])
+    @fav_store ||= FavStore.find_by(id: session[:fav_store_id])
+
+    @style.user_id = resource.id
+    @style.save
+    @sizeset.user_id = resource.id
+    @sizeset.save
+    @fav_store.user_id = resource.id
+    @fav_store.save
   end
   
   def update_sanitized_params
@@ -35,7 +38,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   protected
-
 
   def after_sign_up_path_for(resource)
     root_path

@@ -1,6 +1,6 @@
 class IntroController < ApplicationController
   include Wicked::Wizard::Translated
-  before_action :set_style_and_sizeset, only: [:show, :update]
+  before_action :set_style_fav_store_and_sizeset, only: [:show, :update]
 
   steps :gender, :work, :evening, :shirtfit, :pantsfit, :stores, :shirtsize, :necksize, :jacketsize, :waistsize, :shoesize, :heightsize, :weightsize
 
@@ -19,9 +19,18 @@ class IntroController < ApplicationController
       end
       render_wizard @style
 
-    when "work", "evening", "shirtfit", "pantsfit", "stores"
+    when "work", "evening", "shirtfit", "pantsfit"
       @style.update_attributes(style_params)
       render_wizard @style
+
+    when "stores"
+      if @fav_store
+        @fav_store.update_attributes(fav_store_params)
+      else
+        @fav_store = FavStore.create(fav_store_params)
+        session[:fav_store_id] = @fav_store.id
+      end
+      render_wizard @fav_store
 
     when "shirtsize"
       if @sizeset
@@ -49,17 +58,22 @@ class IntroController < ApplicationController
 
   private
 
-  def set_style_and_sizeset
-    @style   = Style.find_by(id: session[:style_id]) 
-    @sizeset = Sizeset.find_by(id: session[:sizeset_id]) 
+  def set_style_fav_store_and_sizeset
+    @style     ||= Style.find_by(id: session[:style_id]) 
+    @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id]) 
+    @fav_store ||= FavStore.find_by(id: session[:fav_store_id]) 
   end
 
   def style_params
-    params.require(:style).permit( :gender_preference, :work_style, :evening_style, :shirt_fit, :pants_fit, store: [])
+    params.require(:style).permit( :gender_preference, :work_style, :evening_style, :shirt_fit, :pants_fit)
   end
 
   def sizeset_params
     params.require(:sizeset).permit( :shirt, :neck, :jacket, :waist, :shoe, :height, :weight)
+  end
+
+  def fav_store_params
+    params.require(:fav_store).permit(store: [])
   end
 
 end

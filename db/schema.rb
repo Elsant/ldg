@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215210930) do
+ActiveRecord::Schema.define(version: 20160223154631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fav_stores", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "store"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "fav_stores", ["user_id"], name: "index_fav_stores_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -51,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160215210930) do
     t.integer  "evening_style",     limit: 2
     t.integer  "shirt_fit",         limit: 2
     t.integer  "pants_fit",         limit: 2
-    t.integer  "store"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
@@ -98,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160215210930) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   add_index "users", ["zipcode"], name: "index_users_on_zipcode", using: :btree
 
+  add_foreign_key "fav_stores", "users"
   add_foreign_key "sizesets", "users"
   add_foreign_key "styles", "users"
 end

@@ -1,5 +1,9 @@
 module IntroHelper
 
+  def stores_list
+    @stores = FavStore.stores
+  end
+
   def options_for_shirt_sizes
     arr = Sizeset.shirt_sizes.each_with_index.map { |x,i| [x, i] }
     arr << ["I don't know my shirt size", nil]
