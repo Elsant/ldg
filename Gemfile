@@ -32,6 +32,9 @@ group :development, :test do
   gem 'byebug'
   gem 'spring'
   gem 'dotenv-rails'
+  gem "minitest-rails"
+  gem "minitest-rails-capybara"
+  gem 'minitest-reporters'
 end
 
 group :production do

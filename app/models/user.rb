@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def halfemail
-    self.email.split(/@/).gsub(/\./, '')[0]
+    self.email.split(/@/)[0].gsub(/\./, '')
   end
 
 end

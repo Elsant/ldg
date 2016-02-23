@@ -1,7 +1,9 @@
-require 'test_helper'
+require "test_helper"
 
-class StyleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
+describe Style do
+  # let(:style) { Style.new }
+
+  # it "must be valid" do
+  #   value(style).must_be :valid?
   # end
 end
