@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 20160223154631) do
     t.integer  "neck",       limit: 2
     t.integer  "jacket"
     t.integer  "waist"
-    t.decimal  "shoe",                 precision: 3, scale: 1
+    t.decimal  "shoe"
     t.integer  "height"
     t.integer  "weight"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "sizesets", ["user_id"], name: "index_sizesets_on_user_id", using: :btree

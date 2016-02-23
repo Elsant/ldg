@@ -1,3 +1,4 @@
+- title "Select Shoe Size"
 .main-content
   = form_for @sizeset, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
     .form-title-row
@@ -9,4 +10,4 @@
         =f.select( :shoe, options_for_shoe_sizes, { include_blank: false } )
 
     .form-row
-      b= f.button "Next: Height", :name => "Next: Height"
+      = f.button "Next: Height", :name => "Next: Height"

@@ -6,7 +6,7 @@ class CreateSizesets < ActiveRecord::Migration
       t.integer :neck,      limit: 2
       t.integer :jacket,    limit: 3
       t.integer :waist,     limit: 3
-      t.decimal :shoe,      precision: 3, scale: 1
+      t.decimal :shoe,      limit: 3
       t.integer :height,    limit: 3
       t.integer :weight,    limit: 3
 

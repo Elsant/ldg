@@ -10,15 +10,20 @@ class IntroController < ApplicationController
 
   def update
     case wizard_value(step)
-    when "gender"
-      if @style
-        @style.update_attributes(style_params)
+    when "gender" 
+      if params[:style][:gender_preference] == "1"
+        session[:force_signin] = true
+        session[:after_intro] = true
+        redirect_to new_user_registration_path
       else
-        @style = Style.create(style_params)
-        session[:style_id] = @style.id
+        if @style
+          @style.update_attributes(style_params)
+        else
+          @style = Style.create(style_params)
+          session[:style_id] = @style.id
+        end
+        render_wizard @style
       end
-      render_wizard @style
-
     when "work", "evening", "shirtfit", "pantsfit"
       @style.update_attributes(style_params)
       render_wizard @style

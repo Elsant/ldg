@@ -17,6 +17,15 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+
+    # Remove this block in production
+    if session[:force_signin] = true
+      @style = Style.create
+      @sizeset = Sizeset.create
+      @fav_store = FavStore.create
+    end
+    # end of block to remove
+
     @style     ||= Style.find_by(id: session[:style_id]) 
     @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id])
     @fav_store ||= FavStore.find_by(id: session[:fav_store_id])

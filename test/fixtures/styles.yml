@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  gender_preference: 1
-  work_style: 1
-  evening_style: 1
-  shirt_fit: 1
-  pants_fit: 1
-  store: 1
+# one:
+#   user_id: 
+#   gender_preference: 1
+#   work_style: 1
+#   evening_style: 1
+#   shirt_fit: 1
+#   pants_fit: 1
+#   store: 1
 
-two:
-  user_id: 
-  gender_preference: 1
-  work_style: 1
-  evening_style: 1
-  shirt_fit: 1
-  pants_fit: 1
-  store: 1
+# two:
+#   user_id: 
+#   gender_preference: 1
+#   work_style: 1
+#   evening_style: 1
+#   shirt_fit: 1
+#   pants_fit: 1
+#   store: 1

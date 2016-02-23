@@ -1,3 +1,4 @@
+- title "Select Work Style" 
 .main-content
   = form_for @style, url: wizard_path, method: :put, html: {class: "form-basic"} do |f|
     .form-title-row
@@ -9,11 +10,11 @@
         div
           label
             =f.radio_button :work_style, 0, :checked => true
-            span  Casual
+            span Casual
         div
           label
             =f.radio_button :work_style, 1
-            span  Business
+            span Business
         div
           label
             =f.radio_button :work_style, 2

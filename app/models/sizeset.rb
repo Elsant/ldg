@@ -7,7 +7,7 @@ class Sizeset < ActiveRecord::Base
 
   JACKET_SIZES =  ["XXS / 14.25 inches / 36 cm", "XS / 14.5 inches / 37 cm", "S / 15 inches / 38 cm", "M / 16 inches / 41 cm", "L / 17 inches / 43 cm", "XL / 17.5 inches / 44 cm", "XXL / 18 inches / 46 cm"].freeze
 
-  WAIST_SIZES =  ["XXS / 14.25 inches / 36 cm", "XS / 14.5 inches / 37 cm", "S / 15 inches / 38 cm", "M / 16 inches / 41 cm", "L / 17 inches / 43 cm", "XL / 17.5 inches / 44 cm", "XXL / 18 inches / 46 cm"].freeze
+  WAIST_SIZES =  ["28 inches / 71 cm", "29 inches / 73.66 cm", "30 inches / 76 cm", "31 inches / 78.74 cm", "32 inches / 81 cm", "33 inches / 83.82 cm", "34 inches / 86 cm", "35 inches / 88.9 cm", "36 inches / 91 cm", "37 inches / 94 cm", "38 inches / 96 cm", "39 inches / 99 cm", "40 inches / 101.6 cm"].freeze
 
   SHOES_SIZES = [6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14].freeze
 
