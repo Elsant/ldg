@@ -11,19 +11,14 @@ class IntroController < ApplicationController
   def update
     case wizard_value(step)
     when "gender" 
-      if params[:style][:gender_preference] == "1"
-        session[:force_signin] = true
-        session[:after_intro] = true
-        redirect_to new_user_registration_path
+      if @style
+        @style.update_attributes(style_params)
       else
-        if @style
-          @style.update_attributes(style_params)
-        else
-          @style = Style.create(style_params)
-          session[:style_id] = @style.id
-        end
-        render_wizard @style
+        @style = Style.create(style_params)
+        session[:style_id] = @style.id
       end
+      render_wizard @style
+      
     when "work", "evening", "shirtfit", "pantsfit"
       @style.update_attributes(style_params)
       render_wizard @style
@@ -52,12 +47,13 @@ class IntroController < ApplicationController
 
     when "weightsize"
       @sizeset.update_attributes(sizeset_params)
-      session[:after_intro] = true
+      
       render_wizard @sizeset
     end
   end
 
   def finish_wizard_path
+    session[:after_intro] = true
     new_user_registration_path 
   end
 

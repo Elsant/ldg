@@ -11,31 +11,24 @@ class RegistrationsController < Devise::RegistrationsController
       build_resource({})
       set_minimum_password_length
       yield resource if block_given?
+      session[:force_signin] = true
       redirect_to intro_path(Wicked::FIRST_STEP)
     end
   end
 
   def create
     super
+    
+    style = Style.find_by(id: session[:style_id]) || Style.create
+    sizeset = Sizeset.find_by(id: session[:sizeset_id]) || Sizeset.create
+    fav_store = FavStore.find_by(id: session[:fav_store_id]) || FavStore.create
 
-    # Remove this block in production
-    if session[:force_signin] = true
-      @style = Style.create
-      @sizeset = Sizeset.create
-      @fav_store = FavStore.create
-    end
-    # end of block to remove
-
-    @style     ||= Style.find_by(id: session[:style_id]) 
-    @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id])
-    @fav_store ||= FavStore.find_by(id: session[:fav_store_id])
-
-    @style.user_id = resource.id
-    @style.save
-    @sizeset.user_id = resource.id
-    @sizeset.save
-    @fav_store.user_id = resource.id
-    @fav_store.save
+    style.user_id = resource.id
+    style.save
+    sizeset.user_id = resource.id
+    sizeset.save
+    fav_store.user_id = resource.id
+    fav_store.save
   end
   
   def update_sanitized_params
