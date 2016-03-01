@@ -1,0 +1,26 @@
+- title "Create Occasion"
+.main-content
+  = form_for @occasion, html: {class: "form-basic"} do |f|
+    .form-title-row
+      h1 Create Occasion
+
+    .form-row
+      label
+        span Title
+        = f.text_field :title, autofocus: true
+    .form-row
+      label
+        span Date and Time
+        = f.text_field :occasion_time, autofocus: true, placeholder: Time.now.strftime("%m-%d-%Y %H:%M")
+    .form-row
+      label
+        span Select One
+      .form-radio-buttons
+        - occasion_styles_list.each_with_index do |store, i|
+          div
+            label
+              = f.radio_button(:style, i, autofocus: true )
+              span = store
+
+    .form-row
+        = f.button "Create Occasion"

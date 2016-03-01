@@ -19,8 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     
-    style = Style.find_by(id: session[:style_id]) || Style.create
-    sizeset = Sizeset.find_by(id: session[:sizeset_id]) || Sizeset.create
+    style     = Style.find_by(id: session[:style_id]) || Style.create
+    sizeset   = Sizeset.find_by(id: session[:sizeset_id]) || Sizeset.create
     fav_store = FavStore.find_by(id: session[:fav_store_id]) || FavStore.create
 
     style.user_id = resource.id
@@ -41,12 +41,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  # def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(resource)
+    new_occasion_path
   #   login_path
-  # end
+  end
 
   def after_inactive_sign_up_path_for(resource)
-    login_path
+    new_occasion_path
+    # login_path
   end
 
   def after_update_path_for(resource)

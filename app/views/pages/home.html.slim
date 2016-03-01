@@ -8,6 +8,19 @@
     .form-row
       label Signed In
     .form-row
+      = link_to "Create Occasion", new_occasion_path
+    .form-row
+      label Ocassions
+      -current_user.occasions.each do |occ|
+        .form-row.occasion
+          span = occ.occasion_time.strftime("%b-%d-%Y %H:%M")
+          span &nbsp; 
+          span =occ.title
+          span &nbsp;
+          span Style - 
+          span =occ.named_style
+
+    .form-row
       = link_to "Log out", destroy_user_session_path, :method => :delete
 
 

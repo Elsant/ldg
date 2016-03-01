@@ -60,9 +60,9 @@ class IntroController < ApplicationController
   private
 
   def set_style_fav_store_and_sizeset
-    @style     ||= Style.find_by(id: session[:style_id]) 
-    @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id]) 
-    @fav_store ||= FavStore.find_by(id: session[:fav_store_id]) 
+    @style     ||= Style.find_by(id: session[:style_id]) if session[:style_id]
+    @sizeset   ||= Sizeset.find_by(id: session[:sizeset_id]) if session[:sizeset_id]
+    @fav_store ||= FavStore.find_by(id: session[:fav_store_id]) if session[:fav_store_id]
   end
 
   def style_params
