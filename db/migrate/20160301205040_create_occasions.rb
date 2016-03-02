@@ -5,6 +5,7 @@ class CreateOccasions < ActiveRecord::Migration
       t.string  :title
       t.integer :style, limit: 1
       t.timestamp :occasion_time
+      t.timestamp :archieved, default: nil
 
       t.timestamps null: false
     end

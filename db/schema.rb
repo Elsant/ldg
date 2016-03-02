@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160301205040) do
     t.string   "title"
     t.integer  "style",         limit: 2
     t.datetime "occasion_time"
+    t.datetime "archieved"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
