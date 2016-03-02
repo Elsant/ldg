@@ -52,7 +52,6 @@ describe Occasion do
     value(occasion.occasion_time).must_be_instance_of ActiveSupport::TimeWithZone
   end
 
-
   it "must have occasion_time" do
     occasion.archieved.must_equal archieved_day
     occasion.archieved.must_be_instance_of ActiveSupport::TimeWithZone

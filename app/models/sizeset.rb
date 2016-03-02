@@ -45,8 +45,6 @@ class Sizeset < ActiveRecord::Base
   end
 
 
-
-
   def shirt_size
     SHIRT_SIZES[self.shirt] if self.shirt
   end

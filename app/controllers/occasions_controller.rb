@@ -22,7 +22,7 @@ class OccasionsController < ApplicationController
     end
 
     def occasion_params
-      params.require(:occasion).permit(:user_id, :title, :style, :occasion_time)
+      params.require(:occasion).permit(:user_id, :title, :style, :occasion_time) #: archieved will be set in controller as Time.now
     end
 
 end

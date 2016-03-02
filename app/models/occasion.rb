@@ -12,7 +12,7 @@ class Occasion < ActiveRecord::Base
   end
 
   def occasion_time=(value)
-    self[:occasion_time] = DateTime.strptime(value, "%m-%d-%Y %H:%M").to_time
+    self[:occasion_time] = DateTime.strptime(value, "%m-%d-%Y %H:%M").to_time if value
   end
 
 end

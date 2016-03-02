@@ -12,12 +12,12 @@ feature "User Login " do
     confirmed_at: Time.now
     ) }
 
-  scenario "signs in with correct email password " do
+  scenario "unsigned user visits root page " do
     visit "/"
     page.must_have_content "Select Gender"
   end
   
-  scenario "signs in with correct email password " do
+  scenario "user signes in with correct email password " do
     login_as(user, :scope => :user)
     visit "/"
     page.must_have_content "Signed In"

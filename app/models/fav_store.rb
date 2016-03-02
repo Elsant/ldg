@@ -12,7 +12,7 @@ class FavStore < ActiveRecord::Base
   end
 
   def store=(arr)
-    arr && super(arr.join(":")) 
+    arr && super(arr.join(":"))
   end
 
   def stores
